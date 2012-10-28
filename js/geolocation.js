@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    initialize();
+//    initialize();
+    geolocalizar();
+    
 //    detectBrowser();
 });
 
@@ -29,17 +31,18 @@ function initialize() {
             initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
             $("#ver_mapa").text("Ajá! Estás en " + position.coords.latitude +","+position.coords.longitude+","+position.coords.accuracy );
             //Deja el mapa centrado de acuerdo a los datos obtenidos
-            map.setCenter(initialLocation);
+            var coor = new google.maps.LatLng(-42.500,-73.650);
+            map.setCenter(coor);
             //se configura la marcador dentro del mapa, indicandole las opciones de coordenadas,el mapa un titulo
-            var marker = new google.maps.Marker({
-                animation: google.maps.Animation.DROP,
-                //                 animation: google.maps.Animation.BOUNCE,
-                draggable:true,
-                position: initialLocation, 
-                map: map,
-                title:"Tu, estas Aquí",
-                icon:'images/smiley_happy.png'
-            }); 
+//            var marker = new google.maps.Marker({
+//                animation: google.maps.Animation.DROP,
+//                //                 animation: google.maps.Animation.BOUNCE,
+//                draggable:true,
+//                position: initialLocation, 
+//                map: map,
+//                title:"Tu, estas Aquí",
+//                icon:'images/smiley_happy.png'
+//            }); 
             //--------------------------------------------------//
             downloadUrl("phpsqlajax_genxml.php", function(data) {
                 var markers = data.documentElement.getElementsByTagName("marker");
