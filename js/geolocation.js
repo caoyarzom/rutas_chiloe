@@ -1,6 +1,6 @@
 $(document).ready(function(){
-//    initialize();
-    geolocalizar();
+    initialize();
+//    geolocalizar();
     
 //    detectBrowser();
 });
@@ -25,46 +25,27 @@ function initialize() {
     if(navigator.geolocation) {
         //Se cambia el valor a verdadero por que el bavegadore soporta geolocalizacion
         browserSupportFlag = true;
-        //Obtiene las coordenadas a través del navegador
-        navigator.geolocation.getCurrentPosition(function(position) {
-            //Guarda los datos de las coordenadas 
-            initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-            $("#ver_mapa").text("Ajá! Estás en " + position.coords.latitude +","+position.coords.longitude+","+position.coords.accuracy );
-            //Deja el mapa centrado de acuerdo a los datos obtenidos
-            var coor = new google.maps.LatLng(-42.500,-73.650);
-            map.setCenter(coor);
-            //se configura la marcador dentro del mapa, indicandole las opciones de coordenadas,el mapa un titulo
-//            var marker = new google.maps.Marker({
-//                animation: google.maps.Animation.DROP,
-//                //                 animation: google.maps.Animation.BOUNCE,
-//                draggable:true,
-//                position: initialLocation, 
-//                map: map,
-//                title:"Tu, estas Aquí",
-//                icon:'images/smiley_happy.png'
-//            }); 
-            //--------------------------------------------------//
-            downloadUrl("phpsqlajax_genxml.php", function(data) {
-                var markers = data.documentElement.getElementsByTagName("marker");
-                for (var i = 0; i < markers.length; i++) {
-                    var name = markers[i].getAttribute("name");
-                    var address = markers[i].getAttribute("address");
-                    var type = markers[i].getAttribute("type");
-                    var latlng = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
-                        parseFloat(markers[i].getAttribute("lng")));
-                    var marker = createMarker(latlng, name, address, type);
-                    marker.setMap(map);
-                }
-                google.maps.event.addListener(marker, 'click', function() {
-                    var info=new google.maps.InfoWindow();
-                    info.open(null);
-                });
+        var coor = new google.maps.LatLng(-42.500,-73.650);
+        map.setCenter(coor);
+        //--------------------------------------------------//
+        downloadUrl("phpsqlajax_genxml.php", function(data) {
+            var markers = data.documentElement.getElementsByTagName("marker");
+            for (var i = 0; i < markers.length; i++) {
+                var name = markers[i].getAttribute("name");
+                var address = markers[i].getAttribute("address");
+                var type = markers[i].getAttribute("type");
+                var latlng = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
+                    parseFloat(markers[i].getAttribute("lng")));
+                var marker = createMarker(latlng, name, address, type);
+                marker.setMap(map);
+            }
+            google.maps.event.addListener(marker, 'click', function() {
+                var info=new google.maps.InfoWindow();
+                info.open(null);
             });
-        //---------------------------------------------//
-        }, function() {
-            //envia los datoa a la funcion error
-            handleNoGeolocation(browserSupportFlag);
         });
+    //---------------------------------------------//
+        
         
     // Si el navegador no soprta la Geolocalizacion
     } else {
@@ -101,11 +82,8 @@ function initialize() {
             initialLocation = siberia;
         }
         map.setCenter(initialLocation);
-    }
-  
-  
+    }  
 }
- 
 function detectBrowser() {
     var useragent = navigator.userAgent;
     var mapdiv = document.getElementById("mapa_canvas");
