@@ -1,11 +1,9 @@
 $(document).ready(function(){
-    initialize();
-//    geolocalizar();
+                initialize();
+                //   geolocalizar();
     
-//    detectBrowser();
-});
-
-
+                //    detectBrowser();
+            });
 var initialLocation;
 var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);

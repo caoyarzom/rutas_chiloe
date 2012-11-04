@@ -40,3 +40,13 @@ function geolocalizar(){
         handleNoGeolocation(browserSupportFlag);
     }
 }
+function handleNoGeolocation(errorFlag) {
+        if (errorFlag == true) {
+            alert("Geolocation service failed.");
+            initialLocation = newyork;
+        } else {
+            alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+            initialLocation = siberia;
+        }
+        map.setCenter(initialLocation);
+    }  
