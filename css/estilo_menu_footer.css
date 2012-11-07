@@ -1,11 +1,10 @@
-/* SECOND EXAMPLE */
 
 #paneltwo { 
 	width:300px;
 	list-style:none; 
 	position:relative;
 	display:inline;
-}
+     }
 
 #paneltwo li {  
 	border-radius:3px 3px 3px 3px; 
@@ -14,10 +13,10 @@
 	float:left;
 	overflow:hidden;
 	position:relative;
-	background: #000000;
-	background: -moz-linear-gradient(top, #161616 0%, #000000 100%);
-	background: -webkit-linear-gradient(top, #161616 0%,#000000 100%);
-	background: -o-linear-gradient(top, #161616 0%,#000000 100%);
+	background: #93B375;
+	background: -moz-linear-gradient(top, #161616 0%, #93B375 100%);
+	background: -webkit-linear-gradient(top, #161616 0%,#93B375 100%);
+	background: -o-linear-gradient(top, #161616 0%,#93B375 100%);
 	border-left:1px solid #111; border-top:1px solid #111; border-right:1px solid #333; border-bottom:1px solid #333;
 }
 

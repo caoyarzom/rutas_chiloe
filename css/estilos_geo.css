@@ -1,20 +1,22 @@
+@import url('reset.css');
 article, footer, header, section
 {
     display: block;
 }
 
 body{
-background:#76bdff;
-font-family: "Carme",Arial;
-font-size: 16px;
-margin: 0;
-padding: 0;
-text-align: center;
+/*    background:#76bdff;*/
+    background:#e6eecc;
+    font-family: "Carme",Arial;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 
 }
 footer, header, section
 {
-    background: #FFF;
+    background: #AEBEAF url('../images/bg.png') repeat;
     border-radius: 0.9em;
     -webkit-border-radius: 0.9em;
     -moz-border-radius: 0.5em;
@@ -22,9 +24,9 @@ footer, header, section
     -ms-border-radius: 0.5em;
     box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.9) 2px 5px 15px;
-    margin: 1.1em auto;
-    padding: 1.5em;
-    width: 90%;
+    margin: 0.1em auto;
+    padding: 0.3em;
+    width: 95%;
 }
 
 #mapa_canvas
@@ -41,5 +43,68 @@ footer, header, section
     -ms-border-radius: 0.5em;
     box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.9) 2px 5px 15px;
+
+}
+#container_rutas{
+    display: inline-block;
+    vertical-align: top;
+}
+#mini_container_rutas1{
+    padding: 0.5em;
+    margin: 0.1em;
+    vertical-align: top;
+    width: 35%;
+    display: inline-block;
+
+}
+#mini_container_rutas_mapa{
+    padding: 0.5em;
+    margin: 0.1em;
+    vertical-align: top;
+    /*    width: 68%;*/
+    display: inline-block;
+}
+header h1 a{
+    color: #292929!important;
+    font-size: 75px;
+    text-shadow: 0 3px 3px #555;
+    transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+   
+}
+header h1 a:hover{
+    
+    font-size: 100px;
+    transform: scale(1.1) translateZ(0);
+    -webkit-transform:scale(1.1) translateZ(0);
+    -o-transform:scale(1.1) translateZ(0);
+    -moz-transform:scale(1.1) translateZ(0);
+    -ms-transform:scale(1.1) translateZ(0);
+
+   
+}
+ .sub_h1 {
+    font-size: 18px !important;
+    text-shadow: 0 3px 3px #555;
+    letter-spacing: 2px;
+    
+}
+/*--------------------------*/
+a{
+	color: #fff;
+	text-decoration: none;
+}
+.clr{
+	clear: both;
+}
+
+#container_menu_footer{
+    display: inline-block;
+    vertical-align: top;
     
 }

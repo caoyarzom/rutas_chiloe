@@ -1,15 +1,17 @@
 $(document).ready(function(){
-                initialize();
-                //   geolocalizar();
+    initialize();
+//   geolocalizar();
     
-                //    detectBrowser();
-            });
+//    detectBrowser();
+});
 var initialLocation;
 var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 var browserSupportFlag =  new Boolean();
+var directionsService = new google.maps.DirectionsService();
 
 function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
     //opciones del mapa
     var myOptions = {
         //el zoom con que se mostrará en el mapa
@@ -18,7 +20,11 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("mapa_canvas"), myOptions);// crea el mapa en el div correspondiente
-  
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('directions-panel'));
+    var control = document.getElementById('control');
+    control.style.display = 'block';
+//    map.controls[google.maps.ControlPosition.TOP].push(control);
     // Try W3C Geolocation (Preferred)
     if(navigator.geolocation) {
         //Se cambia el valor a verdadero por que el bavegadore soporta geolocalizacion
@@ -82,15 +88,15 @@ function initialize() {
         map.setCenter(initialLocation);
     }  
 }
-function detectBrowser() {
-    var useragent = navigator.userAgent;
-    var mapdiv = document.getElementById("mapa_canvas");
-    
-    if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
-        mapdiv.style.width = '100%';
-        mapdiv.style.height = '100%';
-    } else {
-        mapdiv.style.width = '600px';
-        mapdiv.style.height = '800px';
-    }
-}
+//function detectBrowser() {
+//    var useragent = navigator.userAgent;
+//    var mapdiv = document.getElementById("mapa_canvas");
+//    
+//    if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+//        mapdiv.style.width = '100%';
+//        mapdiv.style.height = '100%';
+//    } else {
+//        mapdiv.style.width = '600px';
+//        mapdiv.style.height = '800px';
+//    }
+//}

@@ -7,24 +7,99 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/estilos_geo.css"/>	
+        <link rel="stylesheet" href="css/style10.css"/>
+         <link rel="stylesheet" type="text/css" href="css/estilo_menu_footer.css" />
         <script src="js/geolocation.js"></script>
         <script src="js/geo.js"></script>
         <script src="js/util.js"></script>
+        <script src="js/geo_rutas.js"></script>
         <script >
             
         </script>
-        <title>Google Maps AJAX + MySQL/PHP Example</title>
+        <title>Rutas de Chiloé - Iglesias Patrimonio de la Humanidad</title>
     </head>
     <body>
         <header>
+            <hgroup>
+                <h1><a href="index.html">Rutas de Chiloé</a></h1>
 
-            <hgroup ><h1>Rutas de Chiloé</h1></hgroup>
+            </hgroup>
+            <p class="sub_h1">La magia de la Isla a un Click!</p>
         </header>
-        <section>
+
+
+        <div id="container_menu_rutas_header">        
+            <ul class="ca-menu">
+                <li>
+                    <a href="geo_iglesias.html">
+                        <span class="ca-icon">S</span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">Ruta Iglesias Patrimoniales</h2>
+                            <h3 class="ca-sub">Tour de la Aquitectura Jesuita</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="ca-icon">I</span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">Ruta de la Defensa Española</h2>
+                            <h3 class="ca-sub"> Fuertes Espanoles de Chiloé</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="ca-icon">S</span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">Rutas de los Parques</h2>
+                            <h3 class="ca-sub">Contacto con la Naturaleza</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="ca-icon">d</span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">Rutas de los Miradores</h2>
+                            <h3 class="ca-sub">Observa Chiloé de las AlturasS</h3>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div><!-- content -->
+        <section id="container_rutas">
             <p id="ver_mapa">Dejame encontrarte!</p>
-            <div id="mapa_canvas"></div>
+            <p class="sub_h1">Ruta Iglesias Patrimoniales</p>
+            <article id="mini_container_rutas1">
+                <div id="control">
+                    <strong>Origen:</strong>
+                    <select id="start" onchange="calcRoute();">
+
+                    </select>
+                    <strong>Destino:</strong>
+                    <select id="end" onchange="calcRoute();">
+
+                    </select>
+                </div>
+                <div id="directions-panel"></div>
+            </article>
+            <article id="mini_container_rutas_mapa">
+                <div id="mapa_canvas"></div>
+            </article>
         </section>
-        <footer>Desarrollado y engendrado por @tinguinito 2011</footer>
+      <footer>
+            <div id="container_menu_footer">   
+                <ul id="paneltwo">
+                    <li class="mask"><h3>MENU &gt;</h3></li>
+                    <li class="linkOne"><a href="index.html">Inicio</a></li>
+                    <li class="linkTwo"><a href="l">Idea</a></li>
+                    <li class="linkThree"><a href="#">Contacto</a></li>
+                    <!--<li class="linkFour"><a href="#">Link 4</a></li>
+                    <li class="linkFive"><a href="#">Link 5</a></li>-->
+                </ul>
+            </div>
+        </footer>
 
 
 
