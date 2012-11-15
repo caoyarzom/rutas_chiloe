@@ -1,6 +1,6 @@
 <?php
 //$localhost="localhost";
 $username="root";
-$password="cachantun";
+$password="";
 $database="bd_mapas";
 ?>

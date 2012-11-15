@@ -1,6 +1,6 @@
 $(document).ready(function(){
     initialize();
-//   geolocalizar();
+   geolocalizar();
     
 //    detectBrowser();
 });
@@ -9,17 +9,19 @@ var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 var browserSupportFlag =  new Boolean();
 var directionsService = new google.maps.DirectionsService();
+var myOptions;
+var map;
 
 function initialize() {
     directionsDisplay = new google.maps.DirectionsRenderer();
     //opciones del mapa
-    var myOptions = {
+     myOptions = {
         //el zoom con que se mostrará en el mapa
         zoom: 10,
         //el tipo de mapa
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    var map = new google.maps.Map(document.getElementById("mapa_canvas"), myOptions);// crea el mapa en el div correspondiente
+     map = new google.maps.Map(document.getElementById("mapa_canvas"), myOptions);// crea el mapa en el div correspondiente
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('directions-panel'));
     var control = document.getElementById('control');
