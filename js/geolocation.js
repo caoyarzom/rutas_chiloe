@@ -4,13 +4,14 @@ $(document).ready(function(){
     
 //    detectBrowser();
 });
+var latgeo, longeo;
 var initialLocation;
 var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 var browserSupportFlag =  new Boolean();
 var directionsService = new google.maps.DirectionsService();
 var myOptions;
-var map;
+var mapa;
 
 function initialize() {
     directionsDisplay = new google.maps.DirectionsRenderer();
@@ -21,8 +22,8 @@ function initialize() {
         //el tipo de mapa
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-     map = new google.maps.Map(document.getElementById("mapa_canvas"), myOptions);// crea el mapa en el div correspondiente
-    directionsDisplay.setMap(map);
+     mapa = new google.maps.Map(document.getElementById("mapa_canvas"), myOptions);// crea el mapa en el div correspondiente
+    directionsDisplay.setMap(mapa);
     directionsDisplay.setPanel(document.getElementById('directions-panel'));
     var control = document.getElementById('control');
     control.style.display = 'block';
@@ -32,7 +33,7 @@ function initialize() {
         //Se cambia el valor a verdadero por que el bavegadore soporta geolocalizacion
         browserSupportFlag = true;
         var coor = new google.maps.LatLng(-42.500,-73.650);
-        map.setCenter(coor);
+        mapa.setCenter(coor);
         //--------------------------------------------------//
         downloadUrl("phpsqlajax_genxml.php", function(data) {
             var markers = data.documentElement.getElementsByTagName("marker");
@@ -43,7 +44,7 @@ function initialize() {
                 var latlng = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
                     parseFloat(markers[i].getAttribute("lng")));
                 var marker = createMarker(latlng, name, address, type);
-                marker.setMap(map);
+                marker.setMap(mapa);
             }
             google.maps.event.addListener(marker, 'click', function() {
                 var info=new google.maps.InfoWindow();
@@ -53,7 +54,7 @@ function initialize() {
     //---------------------------------------------//
         
         
-    // Si el navegador no soprta la Geolocalizacion
+    // Si el navegador no soporta la Geolocalizacion
     } else {
         browserSupportFlag = false;
         handleNoGeolocation(browserSupportFlag);
@@ -76,9 +77,7 @@ function initialize() {
         });
         
         return marker;
-    }
-   
-  
+    }  
     function handleNoGeolocation(errorFlag) {
         if (errorFlag == true) {
             alert("Geolocation service failed.");
@@ -87,7 +86,7 @@ function initialize() {
             alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
             initialLocation = siberia;
         }
-        map.setCenter(initialLocation);
+        mapa.setCenter(initialLocation);
     }  
 }
 //function detectBrowser() {

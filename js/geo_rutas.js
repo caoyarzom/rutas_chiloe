@@ -1,23 +1,6 @@
 var directionDisplay;
 var directionsService = new google.maps.DirectionsService();
 
-//      function initialize() {
-//        directionsDisplay = new google.maps.DirectionsRenderer();
-//        var mapOptions = {
-//          zoom: 8,
-//          mapTypeId: google.maps.MapTypeId.ROADMAP,
-//          center: new google.maps.LatLng(-42.500,-73.650)
-//        };
-//        var map = new google.maps.Map(document.getElementById('map_canvas'),
-//            mapOptions);
-//        directionsDisplay.setMap(map);
-//        directionsDisplay.setPanel(document.getElementById('directions-panel'));
-//
-//        var control = document.getElementById('control');
-//        control.style.display = 'block';
-//        map.controls[google.maps.ControlPosition.TOP].push(control);
-//      }
-
 function calcRoute() {
     var start = document.getElementById('start').value;
     var end = document.getElementById('end').value;
@@ -37,8 +20,6 @@ function calcRoute() {
 
 //      google.maps.event.addDomListener(window, 'load', initialize);
 // carga select con datos xml extraidos de la BD
-
-
 downloadUrl("phpsqlajax_genxml.php", function(data) {
     var markers = data.documentElement.getElementsByTagName("marker");
     for (var i = 0; i < markers.length; i++) {
