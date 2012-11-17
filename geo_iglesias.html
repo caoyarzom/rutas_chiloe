@@ -3,16 +3,16 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/estilos_geo.css"/>	
         <link rel="stylesheet" href="css/style10.css"/>
          <link rel="stylesheet" type="text/css" href="css/estilo_menu_footer.css" />
         <script src="js/geolocation.js"></script>
-        <script src="js/geo.js"></script>
         <script src="js/util.js"></script>
-        <script src="js/geo_rutas.js"></script>
+        <!--<script src="js/geo.js"></script>        
+        <script src="js/geo_rutas.js"></script>-->
         <script >
             
         </script>
@@ -73,12 +73,13 @@
             <p class="sub_h1">Ruta Iglesias Patrimoniales</p>
             <article id="mini_container_rutas1">
                 <div id="control">
+                    <p> <strong>Como llegar!</strong></p>
                     <strong>Origen:</strong>
-                    <select id="start" onchange="calcRoute();">
+                    <select id="start" >
 
                     </select>
                     <strong>Destino:</strong>
-                    <select id="end" onchange="calcRoute();">
+                    <select id="end" >
 
                     </select>
                 </div>

@@ -1,17 +1,6 @@
- var latgeo, longeo;
- function geolocalizar(){
-//    //opciones del mapa
-//    var myOptions = {
-//        //el zoom con que se mostrará en el mapa
-//        zoom: 10,
-//        //el tipo de mapa
-//        mapTypeId: google.maps.MapTypeId.ROADMAP
-//    };
-//    var map = new google.maps.Map(document.getElementById("mapa_canvas"), myOptions);// crea el mapa en el div correspondiente
-  
+  function geolocalizar(){
     // Try W3C Geolocation (Preferred)
-   
-    if(navigator.geolocation) {
+       if(navigator.geolocation) {
         //Se cambia el valor a verdadero por que el bavegadore soporta geolocalizacion
         browserSupportFlag = true;
         //Obtiene las coordenadas a través del navegador
@@ -20,9 +9,8 @@
             latgeo = position.coords.latitude;
             longeo = position.coords.longitude;
             initialLocation = new google.maps.LatLng(latgeo,longeo);
-            $("#ver_mapa").text("Ajá! Estás en " + latgeo +","+longeo+","+position.coords.accuracy );
-            //Deja el mapa centrado de acuerdo a los datos obtenidos
-            
+            $("#ver_mapa").text("Ajá! Estás en "+initialLocation+","+position.coords.accuracy );
+            //Deja el mapa centrado de acuerdo a los datos obtenidos            
             map.setCenter(initialLocation);
             alert(initialLocation);
             //se configura la marcador dentro del mapa, indicandole las opciones de coordenadas,el mapa un titulo
@@ -33,8 +21,7 @@
                 position: initialLocation, 
                 map: map,
                 title:"Tu, estas Aquí",
-                icon:'images/smiley_happy.png'
-                
+                icon:'images/smiley_happy.png'                
             }); 
          
         //---------------------------------------------//
