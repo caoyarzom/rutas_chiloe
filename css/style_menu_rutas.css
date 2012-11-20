@@ -10,7 +10,7 @@
 }
 #container_menu_rutas{
     display: inline-block;
-    text-align: left;
+    text-align: center;
     background:#e6eecc ;
 	color: #333;
 	font-family: 'Terminal Dosis', Arial, sans-serif;
@@ -19,12 +19,13 @@
         padding: 0.1em;
 }
 .ca-menu{
+    display: inline-block;
     padding: 0;
     margin: 20px auto;
-    width: 500px;
+    width: 36em;
 }
 .ca-menu li{
-    width: 500px;
+    width: 36em;
     height: 100px;
     overflow: hidden;
     display: block;

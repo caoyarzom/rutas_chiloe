@@ -8,6 +8,7 @@ $(document).ready(function(){
     $("#end").change(function(){
         calcRoute(); 
     });
+     
 console.log(errorFlag);
 });
 var latgeo, longeo;
