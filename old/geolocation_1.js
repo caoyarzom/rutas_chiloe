@@ -21,7 +21,7 @@ function mostrarMapa(datos)
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.satelitte
     };
-    var mapa = new google.maps.Map(document.getElementById("mapa_canvas"),opciones);
+    var mapa = new google.maps.Map(document.getElementById("map_canvas"),opciones);
     var opcionesChinche = {
         position: coordenada,
         map: mapa,
@@ -31,6 +31,7 @@ function mostrarMapa(datos)
 }
 function errorMapa(errorsh)
 {
+    alert(errorsh.code);
     $("#ver_mapa").text("Explorador no compatible!");
 }
 

@@ -1,4 +1,7 @@
-  function geolocalizar(){
+
+
+ function geolocalizar(){
+
     // Try W3C Geolocation (Preferred)
        if(navigator.geolocation) {
         //Se cambia el valor a verdadero por que el bavegadore soporta geolocalizacion
@@ -8,10 +11,20 @@
             //Guarda los datos de las coordenadas 
             latgeo = position.coords.latitude;
             longeo = position.coords.longitude;
+            var velocidad = position.coords.speed;
+            var vector = position.coords.heading;
+            var altitud = position.coords.accuracy;
             initialLocation = new google.maps.LatLng(latgeo,longeo);
+
             $("#ver_mapa").text("Ajá! Estás en "+initialLocation+","+position.coords.accuracy );
             //Deja el mapa centrado de acuerdo a los datos obtenidos            
             map.setCenter(initialLocation);
+
+            $("#ver_mapa").text("Ajá! Estás en Latitud" + latgeo +" Longitud"+longeo+" Altitud "+altitud+" Velocidad "+velocidad+" Vector "+vector );
+            //Deja el mapa centrado de acuerdo a los datos obtenidos
+            
+            mapa.setCenter(initialLocation);
+
             alert(initialLocation);
             //se configura la marcador dentro del mapa, indicandole las opciones de coordenadas,el mapa un titulo
             var marker = new google.maps.Marker({
@@ -19,14 +32,14 @@
                 //                 animation: google.maps.Animation.BOUNCE,
                 draggable:true,
                 position: initialLocation, 
-                map: map,
+                map: mapa,
                 title:"Tu, estas Aquí",
                 icon:'images/smiley_happy.png'                
             }); 
          
         //---------------------------------------------//
         }, function() {
-            //envia los datoa a la funcion error
+            //envia los datos    a la funcion error
             handleNoGeolocation(browserSupportFlag);
         });
     } else {
@@ -42,5 +55,5 @@ function handleNoGeolocation(errorFlag) {
             alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
             initialLocation = siberia;
         }
-        map.setCenter(initialLocation);
+        mapa.setCenter(initialLocation);
     }  

@@ -63,45 +63,50 @@
                 </ul>
 
             </div>
-            <ul class="ca-menu">
-                <li>
-                    <a href="geo_iglesias.html">
-                        <span class="ca-icon">S</span>
-                        <div class="ca-content">
-                            <h2 class="ca-main">Ruta Iglesias Patrimoniales</h2>
-                            <h3 class="ca-sub">Tour de la Aquitectura Jesuita</h3>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="ca-icon">I</span>
-                        <div class="ca-content">
-                            <h2 class="ca-main">Ruta de la Defensa Española</h2>
-                            <h3 class="ca-sub"> Fuertes Espanoles de Chiloé</h3>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="ca-icon">S</span>
-                        <div class="ca-content">
-                            <h2 class="ca-main">Rutas de los Parques</h2>
-                            <h3 class="ca-sub">Contacto con la Naturaleza</h3>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="ca-icon">d</span>
-                        <div class="ca-content">
-                            <h2 class="ca-main">Rutas de los Miradores</h2>
-                            <h3 class="ca-sub">Observa Chiloé de las AlturasS</h3>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            
+          
+
+                <ul class="ca-menu">
+                    <li>
+                        <a href="ubicacion_iglesias_patrimoniales_chiloe.html" >
+                         
+                            <span class="ca-icon">S</span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Ruta Iglesias Patrimoniales</h2>
+                                <h3 class="ca-sub">Tour de la Aquitectura Jesuita</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="phpsqlajax_genxml.php?tipo=%d",<?php></a>
+                        <a href="ubicacion_fuertes_espanoles_chiloe.html">
+                           
+                            <span class="ca-icon">I</span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Ruta del Sistema de la Defensa Española</h2>
+                                <h3 class="ca-sub"> Fuertes Espanoles de Chiloé</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="ca-icon">S</span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Rutas de los Parques</h2>
+                                <h3 class="ca-sub">Contacto con la Naturaleza</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="ca-icon">d</span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Rutas de los Miradores</h2>
+                                <h3 class="ca-sub">Observa Chiloé de las AlturasS</h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+              
         </div><!-- content -->
 
         <footer>
@@ -123,6 +128,10 @@
             $(document).ready(function() {
                 $('.roundabout-holder').roundabout();
             });
+            
+            function enviar_formulario(){ 
+                document.form_m_principal.submit() 
+            } 
         </script>
 
         <!--        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->

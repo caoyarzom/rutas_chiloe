@@ -58,7 +58,10 @@
             }
 
             function createMarker(point, name, address, type) {
-                var marker = new GMarker(point, customIcons[type]);
+                var marker = new GMarker(
+                point, 
+                customIcons[type]
+            );
                 var html = "<b>" + name + "</b> <br/>" + address;
                 GEvent.addListener(marker, 'click', function() {
                     marker.openInfoWindowHtml(html);                    

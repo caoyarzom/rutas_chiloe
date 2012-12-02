@@ -1,6 +1,10 @@
 var directionDisplay;
 var directionsService = new google.maps.DirectionsService();
+
 var latgeo, longeo;
+
+
+
 function calcRoute() {
     var start = document.getElementById('start').value;
     var end = document.getElementById('end').value;
