@@ -1,17 +1,12 @@
 $(document).ready(function(){
     initialize();
     geolocalizar(); 
+    cargarCombo();
     
-    //    posicionActual();
-	
-    $("#start").change(function(){
-        calcRoute(); 
-    });
-    $("#end").change(function(){
-        calcRoute(); 
-    });
+    posicionActual();
 
 });
+
 var file;
 var latgeo, longeo;
 var initialLocation;
@@ -25,6 +20,18 @@ var customIcons = [];
 customIcons["iglesia"] = 'images/church-2.png';
 customIcons["fuerte"] = 'images/fuerte.png';
 customIcons["parque"] = 'images/forest2.png';
+customIcons["mirador"] = 'images/binoculars.png';
+//----------------------------cargar Combobox-------//
+function cargarCombo(){
+    $("#start").change(function(){
+        calcRoute(); 
+    });
+    $("#end").change(function(){
+        calcRoute(); 
+    });
+}
+
+
 //---------------------------Start initialize-------------------------------------------//
 function initialize() {
     
@@ -49,8 +56,9 @@ function initialize() {
     browserSupportFlag = true;
         
     //--------------------------------------------------//
-     var path = window.location.pathname.split('/',3); //obtiene el pathname //rutas_chiloe/ubi...html
+     var path = window.location.pathname.split('/',4); //obtiene el pathname //rutas_chiloe/ubi...html En hosting se coloca 4
 //   alert(path[path.length-1] + " pathname")
+    console.log(path);
     if (path[path.length-1] == "ubicacion_fuertes_espanoles_chiloe.html"){
         file = "fuerteXml.xml";
      //   alert("fuerte "+file)
@@ -59,6 +67,9 @@ function initialize() {
        // alert("iglesia "+file)
     }else if(path[path.length-1] == "ubicacion_parques_de_chiloe.html"){
         file = "parquesXml.xml";
+       // alert("iglesia "+file)
+    }else if(path[path.length-1] == "ubicacion_miradores_comunas_chiloe.html"){
+        file = "miradorXml.xml";
        // alert("iglesia "+file)
     }
    
@@ -145,10 +156,24 @@ function mostrarMapa(position) {
     latgeo = position.coords.latitude;
     longeo = position.coords.longitude;
     initialLocation = new google.maps.LatLng(latgeo,longeo);
-    $("#ver_mapa").text("Ajá! Estás en "+initialLocation+","+position.coords.accuracy );
+    $("#ver_mapa").text("Ajá! Estás en Lat-Long "+initialLocation+" márgen de error "+position.coords.accuracy+" mts." );
     $('<option value='+latgeo+','+longeo+'>Mi Ubicación ('+latgeo+','+longeo+')</option>').appendTo("#start");
-    //Deja el mapa centrado de acuerdo a los datos obtenidos            
+    //Deja el mapa centrado de acuerdo a los datos obtenidos
+        var norte = new google.maps.LatLng(-41.78369722222222, -73.69047222222223);
+        var sur = new google.maps.LatLng(-43.52104722222222, -74.17047500000001);
+    if (latgeo <= -41.78369722222222 && latgeo >= -43.52104722222222  ){
+
+    console.log(""+initialLocation+" >= "+norte+"&&"+initialLocation+" <= "+sur );          
     map.setCenter(initialLocation);
+    //alert("Bienvenido a Chiloé");
+    $("#info_geo").text("Bienvenido a Chiloé" );
+        }
+    else{
+    console.log("Inicio >="+initialLocation+"Chiloe "+chiloe);
+    map.setCenter(chiloe);
+    $("#info_geo").text("Lo siento, la geolocalizacion es solo en Chiloé :(, pero puedes recorrer las rutas!" );
+    //alert("Lo siento, la geolocalizacion es solo en Chiloé :(, pero puedes recorrer las rutas!");
+        }
     //            alert(initialLocation);
     //se configura la marcador dentro del mapa, indicandole las opciones de coordenadas,el mapa un titulo
     var marker = new google.maps.Marker({
@@ -159,10 +184,10 @@ function mostrarMapa(position) {
         map: map,
         title:"Tu, estas Aquí",
         icon:'images/smiley_happy.png'                
-    }); 
-         
+    });          
+
+}
 //---------------------------------------------//
-}       
 function err(err) {
     console.log(err);
     //envia los datos    a la funcion error
@@ -186,7 +211,7 @@ function err(err) {
     }
         
         
-};   
+}   
 
 
 
@@ -212,9 +237,10 @@ function onSuccess(newPosition) {
     var element = document.getElementById('#ver_mapa');
     var newLatgeo = newPosition.coords.latitude;
     var newLongeo = newPosition.coords.longitude;
-    var newInitialLocation = new google.maps.LatLng(newLatgeo,newLongeo);
+    var InitialLocation = new google.maps.LatLng(newLatgeo,newLongeo);
         
-    $("#ver_mapa").text("Ajá! Estás en "+newInitialLocation+","+newPosition.coords.accuracy );
+    $("#ver_mapa").text("Ajá! Estás en "+InitialLocation+","+newPosition.coords.accuracy );
+    
 //        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
 //                            'Longitude: ' + position.coords.longitude     + '<br />' +
 //                            '<hr />'      + element.innerHTML;

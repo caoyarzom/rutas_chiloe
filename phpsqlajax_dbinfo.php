@@ -2,9 +2,9 @@
 require_once('PhpConsole.php');
 PhpConsole::start(true, true, dirname(__FILE__));
 //$localhost="localhost";
-$username="root";
-$password="";
-$database="bd_mapas";
+$username="turismo1_admin";
+$password="cachantun";
+$database="turismo1_maps";
 
 //// Opens a connection to a mySQL server
 //$connection=mysql_connect ("localhost", $username, $password);

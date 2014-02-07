@@ -62,4 +62,8 @@ if ($tipo == 'fuerte') {
     header('Location:ubicacion_parques_de_chiloe.html');
     echo $doc->saveXML();
     $doc->save('parquesXml.xml');
+}else if ($tipo == 'mirador') {
+    header('Location:ubicacion_miradores_comunas_chiloe.html');
+    echo $doc->saveXML();
+    $doc->save('miradorXml.xml');
 }

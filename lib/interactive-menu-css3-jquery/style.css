@@ -148,6 +148,11 @@
 .menu li:nth-child(9) .close{
   background-color: #393043;
 }
+.menu li:nth-child(10),
+.menu li:nth-child(10) .content,
+.menu li:nth-child(10) .close{
+  background-color: #393043;
+}
 
 /* -------------------------------- */
 
